@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smeyeer Crêpes & Coffee - App & Menu Officiel</title>
+  
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#120804',
+              dark: '#1c0d06',
+              bg: '#24130a',
+              card: '#2e180d',
+              brown: '#3d2314',
+              gold: '#c88a38',
+              goldLight: '#e2a857',
+              accent: '#f59e0b',
+              cream: '#fdf8f4',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          boxShadow: {
+            'glow': '0 0 25px rgba(200, 138, 56, 0.25)',
+            'glow-strong': '0 0 35px rgba(200, 138, 56, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Glassmorphism & custom styling */
+    .glass-nav {
+      background: rgba(28, 13, 6, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef08a 0%, #c88a38 50%, #e2a857 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-border-glow {
+      box-shadow: 0 0 15px rgba(200, 138, 56, 0.2);
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1c0d06;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3d2314;
+      border-radius: 4px;
+      border: 1px solid rgba(200, 138, 56, 0.2);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #c88a38;
+    }
+  </style>
+</head>
+<body class="bg-brand-bg text-brand-cream font-sans antialiased min-h-screen selection:bg-brand-gold selection:text-brand-dark custom-scrollbar">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-brand-brown via-brand-gold/30 to-brand-brown text-amber-100 text-[11px] sm:text-xs font-semibold py-1.5 px-4 text-center border-b border-brand-gold/20 flex items-center justify-center gap-2">
+    <span class="flex h-2 w-2 relative">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+    </span>
+    <span>Livraison & Emporter disponibles à la commande directe WhatsApp</span>
+    <span class="hidden sm:inline text-brand-gold">•</span>
+    <span class="hidden sm:inline font-bold text-brand-goldLight">0649197283</span>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-40 glass-nav border-b border-brand-gold/20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3.5 group">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-gold via-amber-200 to-brand-gold p-0.5 shadow-lg shadow-brand-gold/20 group-hover:scale-105 transition-transform duration-300">
+            <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center border border-brand-gold/40">
+              <i class="fa-solid fa-candy-cane text-brand-gold text-xl group-hover:rotate-12 transition-transform"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5">
+              <span class="font-serif font-black text-2xl tracking-wider text-amber-50 group-hover:text-brand-gold transition-colors">Smeyeer</span>
+              <span class="text-xs">🍫</span>
+            </div>
+            <span class="text-[9px] font-extrabold text-brand-gold tracking-[0.25em] uppercase -mt-1">Crêpes & Coffee</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-amber-200/80">
+          <a href="#discover" class="hover:text-brand-gold transition-colors py-1 border-b-2 border-transparent hover:border-brand-gold">Découvrir</a>
+          <a href="#menu" class="hover:text-brand-gold transition-colors py-1 border-b-2 border-transparent hover:border-brand-gold">Notre Carte</a>
+          <a href="#builder" class="hover:text-brand-gold transition-colors py-1 border-b-2 border-transparent hover:border-brand-gold flex items-center gap-1.5 text-amber-400">
+            <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i> Crée ta Crêpe
+          </a>
+          <a href="#reels" class="hover:text-brand-gold transition-colors py-1 border-b-2 border-transparent hover:border-brand-gold flex items-center gap-1.5">
+            <i class="fa-solid fa-film text-pink-400"></i> Nos Reels 🎬
+          </a>
+        </div>
+
+        <!-- Right Action Controls -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <!-- Status Pill -->
+          <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-xs font-bold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Ouvert</span>
+          </div>
+
+          <!-- Phone Direct Pill -->
+          <a href="tel:0649197283" class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-brown hover:bg-brand-brown/80 border border-brand-gold/30 text-amber-200 text-xs font-bold transition-all hover:scale-105">
+            <i class="fa-solid fa-phone text-brand-gold text-xs"></i>
+            <span>0649197283</span>
+          </a>
+
+          <!-- Shopping Cart Trigger Button -->
+          <button onclick="toggleCartModal()" class="relative bg-gradient-to-r from-brand-gold to-amber-600 hover:from-amber-500 hover:to-brand-gold text-brand-black font-extrabold px-4 sm:px-5 py-2.5 rounded-full text-xs uppercase tracking-wider flex items-center gap-2.5 shadow-lg shadow-brand-gold/20 hover:scale-105 transition-all">
+            <i class="fa-solid fa-basket-shopping text-sm"></i>
+            <span class="font-black">PANIER</span>
+            <span id="cartBadge" class="bg-brand-black text-brand-gold px-2 py-0.5 rounded-full text-[11px] font-black">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="discover" class="relative overflow-hidden pt-12 sm:pt-20 pb-20 bg-gradient-to-b from-brand-dark via-brand-bg to-brand-dark border-b border-brand-gold/10">
+    <!-- Ambient Lighting Effects -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute top-10 right-10 w-72 h-72 bg-amber-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <!-- Opening Hours Pill Header -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-card/90 border border-brand-gold/40 text-amber-300 text-xs font-bold mb-8 shadow-xl">
+        <i class="fa-regular fa-clock text-brand-gold"></i>
+        <span>Ouvert Tous Les Jours : <strong class="text-brand-gold">17:00 – 00:00</strong></span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-black tracking-tight text-amber-50 leading-[1.15] max-w-4xl mx-auto mb-6">
+        L'ART DE LA CRÊPE <br>
+        <span class="gold-gradient-text">& DU CAFÉ GOURMAND</span>
+      </h1>
+
+      <!-- Description Subtitle -->
+      <p class="text-amber-200/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-medium leading-relaxed mb-10">
+        Découvrez des crêpes sucrées généreusement garnies de Nutella, Lotus, Pistache et Kunafa croustillante, accompagnées de nos boissons gourmandes préparées à la commande.
+      </p>
+
+      <!-- CTA Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <a href="#menu" class="w-full sm:w-auto bg-gradient-to-r from-brand-gold via-amber-500 to-brand-gold text-brand-black font-extrabold px-8 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-3 shadow-glow hover:shadow-glow-strong hover:scale-105 transition-all">
+          <i class="fa-solid fa-utensils"></i>
+          <span>COMMANDER MAINTENANT</span>
+        </a>
+
+        <a href="#builder" class="w-full sm:w-auto bg-brand-card/80 hover:bg-brand-brown text-amber-100 border border-brand-gold/40 font-bold px-8 py-4 rounded-xl text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-3 transition-all hover:scale-105">
+          <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i>
+          <span>PERSONNALISER MA CRÊPE</span>
+        </a>
+      </div>
+
+      <!-- Highlight Stats / Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mt-16 pt-10 border-t border-brand-gold/10 text-center">
+        <div class="p-3 rounded-2xl bg-brand-card/40 border border-brand-gold/10">
+          <div class="text-brand-gold font-serif font-black text-2xl">100%</div>
+          <div class="text-[11px] text-amber-200/60 uppercase font-semibold">Frais & Fait Maison</div>
+        </div>
+        <div class="p-3 rounded-2xl bg-brand-card/40 border border-brand-gold/10">
+          <div class="text-brand-gold font-serif font-black text-2xl">10 DH</div>
+          <div class="text-[11px] text-amber-200/60 uppercase font-semibold">Crêpes dès 10 Dirhams</div>
+        </div>
+        <div class="p-3 rounded-2xl bg-brand-card/40 border border-brand-gold/10">
+          <div class="text-brand-gold font-serif font-black text-2xl">Kunafa</div>
+          <div class="text-[11px] text-amber-200/60 uppercase font-semibold">Spécialités Pistache & Fruits</div>
+        </div>
+        <div class="p-3 rounded-2xl bg-brand-card/40 border border-brand-gold/10">
+          <div class="text-brand-gold font-serif font-black text-2xl">WhatsApp</div>
+          <div class="text-[11px] text-amber-200/60 uppercase font-semibold">Commande en 1 Clic</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Title -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-extrabold uppercase tracking-[0.3em] text-brand-gold mb-2 block">Dégustation</span>
+      <h2 class="text-3xl sm:text-5xl font-serif font-black text-amber-50">NOTRE CARTE OFFICIELLE</h2>
+      <div class="w-16 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto mt-4"></div>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12" id="categoryFilters">
+      <button onclick="filterMenu('all')" class="cat-filter-btn active bg-gradient-to-r from-brand-gold to-amber-500 text-brand-black font-extrabold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all shadow-md">
+        Tous
+      </button>
+      <button onclick="filterMenu('crepes')" class="cat-filter-btn bg-brand-card hover:bg-brand-brown text-amber-200 border border-brand-gold/20 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all">
+        Crêpes & Kunafa
+      </button>
+      <button onclick="filterMenu('desserts')" class="cat-filter-btn bg-brand-card hover:bg-brand-brown text-amber-200 border border-brand-gold/20 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all">
+        Desserts (9ashtota & Tiramisu)
+      </button>
+      <button onclick="filterMenu('coffee')" class="cat-filter-btn bg-brand-card hover:bg-brand-brown text-amber-200 border border-brand-gold/20 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all">
+        Café & Chaud
+      </button>
+      <button onclick="filterMenu('ice')" class="cat-filter-btn bg-brand-card hover:bg-brand-brown text-amber-200 border border-brand-gold/20 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all">
+        Iced Drinks & Mojitos
+      </button>
+      <button onclick="filterMenu('extras')" class="cat-filter-btn bg-brand-card hover:bg-brand-brown text-amber-200 border border-brand-gold/20 font-bold px-5 py-2.5 rounded-full text-xs sm:text-sm transition-all">
+        Extras Toppings
+      </button>
+    </div>
+
+    <!-- Menu Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="menuGrid">
+      <!-- Items dynamically injected via Javascript -->
+    </div>
+  </section>
+
+  <!-- CREPE BUILDER SECTION -->
+  <section id="builder" class="py-20 bg-gradient-to-b from-brand-dark via-brand-card/50 to-brand-dark border-y border-brand-gold/20 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-[0.3em] text-brand-gold mb-2 block">Sur-Mesure</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-black text-amber-50">CRÉE TA CRÊPE PARFAITE</h2>
+        <p class="text-amber-200/70 text-xs sm:text-sm mt-2">Choisissez votre base, vos toppings et crémez selon vos envies.</p>
+      </div>
+
+      <div class="bg-brand-card border border-brand-gold/30 rounded-3xl p-6 sm:p-8 shadow-2xl grid md:grid-cols-3 gap-8">
+        
+        <!-- Options Column -->
+        <div class="md:col-span-2 space-y-8">
+          
+          <!-- Step 1: Base Selection -->
+          <div>
+            <label class="text-amber-100 font-bold text-sm uppercase tracking-wider flex items-center gap-2 mb-4">
+              <span class="w-6 h-6 rounded-full bg-brand-gold text-brand-black flex items-center justify-center text-xs font-black">1</span>
+              <span>Choisissez votre Base</span>
+            </label>
+            <div class="grid grid-cols-2 gap-3" id="builderBases">
+              <!-- JS rendered -->
+            </div>
+          </div>
+
+          <!-- Step 2: Toppings & Extra Creams -->
+          <div>
+            <label class="text-amber-100 font-bold text-sm uppercase tracking-wider flex items-center gap-2 mb-4">
+              <span class="w-6 h-6 rounded-full bg-brand-gold text-brand-black flex items-center justify-center text-xs font-black">2</span>
+              <span>Ajoutez vos Extras & Sauces</span>
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5" id="builderExtras">
+              <!-- JS rendered -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Live Summary Box -->
+        <div class="bg-brand-dark rounded-2xl p-6 border border-brand-gold/30 flex flex-col justify-between shadow-inner">
+          <div>
+            <h3 class="font-serif font-bold text-lg text-amber-100 border-b border-brand-gold/20 pb-3 mb-4 flex items-center justify-between">
+              <span>Récapitulatif</span>
+              <i class="fa-solid fa-stroopwafel text-brand-gold"></i>
+            </h3>
+
+            <div id="builderSummary" class="text-xs text-amber-200/80 space-y-2 min-h-[120px]">
+              <!-- JS rendered -->
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-brand-gold/20 mt-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-extrabold text-amber-200/70">Prix Total:</span>
+              <span id="builderTotal" class="text-2xl font-black text-brand-gold font-serif">10 DH</span>
+            </div>
+
+            <button onclick="addCustomCrepeToCart()" class="w-full bg-gradient-to-r from-brand-gold to-amber-500 hover:from-amber-400 hover:to-brand-gold text-brand-black font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg hover:scale-[1.02]">
+              <i class="fa-solid fa-cart-plus mr-1"></i> Ajouter au Panier
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INSTAGRAM REELS SHOWCASE -->
+  <section id="reels" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400 text-xs font-bold mb-3">
+        <i class="fa-brands fa-instagram"></i> @smeyeer_cp1
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-serif font-black text-amber-50">NOS REELS INSTAGRAM 🎬</h2>
+      <p class="text-amber-200/60 text-xs sm:text-sm mt-2">Plongez dans l'univers gourmand de Smeyeer en vidéo !</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Reel 1 -->
+      <a href="https://www.instagram.com/reel/DeZvNwsT2ns/" target="_blank" class="group bg-brand-card border border-brand-gold/20 rounded-2xl p-6 hover:border-brand-gold transition-all duration-300 shadow-xl flex flex-col justify-between hover:-translate-y-1">
+        <div class="space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-600 to-purple-600 text-white flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase text-pink-400 tracking-wider">Reel Spécial</span>
+            <h3 class="font-serif font-bold text-xl text-amber-100 group-hover:text-brand-gold transition-colors mt-1">Gourmandises & Chocolat Chaud</h3>
+            <p class="text-amber-200/60 text-xs mt-2">Démonstration de préparation de crêpes généreusement fournies et nos cafés signature.</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-brand-gold/10 flex items-center justify-between text-xs font-bold text-brand-gold">
+          <span>Voir sur Instagram</span>
+          <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </a>
+
+      <!-- Reel 2 -->
+      <a href="https://www.instagram.com/reel/DOoQ_GRiBpr/" target="_blank" class="group bg-brand-card border border-brand-gold/20 rounded-2xl p-6 hover:border-brand-gold transition-all duration-300 shadow-xl flex flex-col justify-between hover:-translate-y-1">
+        <div class="space-y-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-600 to-purple-600 text-white flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <div>
+            <span class="text-[10px] font-extrabold uppercase text-pink-400 tracking-wider">Reel Spécial</span>
+            <h3 class="font-serif font-bold text-xl text-amber-100 group-hover:text-brand-gold transition-colors mt-1">Kunafa & Iced Drinks</h3>
+            <p class="text-amber-200/60 text-xs mt-2">Découvrez notre Kunafa pistache ultra croustillante et nos mojitos glacés !</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-brand-gold/10 flex items-center justify-between text-xs font-bold text-brand-gold">
+          <span>Voir sur Instagram</span>
+          <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+        </div>
+      </a>
+
+      <!-- Profile Link Card -->
+      <a href="https://www.instagram.com/smeyeer_cp1" target="_blank" class="group bg-gradient-to-br from-pink-950/40 via-brand-card to-purple-950/40 border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500 transition-all duration-300 shadow-xl flex flex-col justify-between text-center hover:-translate-y-1">
+        <div class="space-y-4">
+          <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 p-1 shadow-xl">
+            <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center text-2xl text-pink-400">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-serif font-bold text-2xl text-amber-100">@smeyeer_cp1</h3>
+            <p class="text-amber-200/60 text-xs mt-2">Rejoignez la communauté Smeyeer et découvrez nos nouveautés chaque jour !</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <span class="inline-block w-full bg-pink-600 hover:bg-pink-500 text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider transition-colors shadow-lg">
+            S'abonner sur Instagram
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SHOPPING CART MODAL & WHATSAPP ORDER -->
+  <div id="cartModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex justify-end transition-opacity">
+    <div class="w-full max-w-md bg-brand-dark border-l border-brand-gold/30 h-full p-6 flex flex-col justify-between shadow-2xl">
+      
+      <div>
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between border-b border-brand-gold/20 pb-4 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+              <i class="fa-solid fa-basket-shopping text-lg"></i>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold text-xl text-amber-100">Votre Panier</h3>
+              <p class="text-[11px] text-amber-200/60">Smeyeer Crêpes & Coffee</p>
+            </div>
+          </div>
+          <button onclick="toggleCartModal()" class="text-amber-400 hover:text-white p-2 rounded-full hover:bg-brand-brown transition-colors">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Cart Items List Container -->
+        <div id="cartItemsContainer" class="space-y-3 max-h-[55vh] overflow-y-auto pr-1">
+          <!-- JS rendered items -->
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="border-t border-brand-gold/20 pt-6 space-y-4 bg-brand-dark">
+        <div class="flex justify-between items-center text-lg font-bold">
+          <span class="text-amber-200 uppercase text-xs tracking-wider">Total Commande:</span>
+          <span id="cartTotal" class="text-2xl font-black text-brand-gold font-serif">0 DH</span>
+        </div>
+
+        <button onclick="sendWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-xl flex items-center justify-center gap-2 hover:scale-[1.02]">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>COMMANDER SUR WHATSAPP (0649197283)</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-black border-t border-brand-gold/20 py-12 text-center text-xs text-amber-200/50">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      <div class="flex items-center justify-center gap-2">
+        <span class="font-serif font-black text-2xl text-amber-100">Smeyeer</span>
+        <span class="text-brand-gold">•</span>
+        <span class="text-xs uppercase tracking-widest text-brand-gold font-bold">Crêpes & Coffee</span>
+      </div>
+      <p class="text-amber-200/60 max-w-md mx-auto">Heures d'ouverture: Tous les jours de 17:00 à 00:00 | Téléphone: 0649197283</p>
+      <div class="pt-4 border-t border-brand-gold/10 text-[11px]">
+        © 2026 Smeyeer. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC & STATE -->
+  <script>
+    // EXACT SMEYEER MENU DATA DIRECTLY FROM YOUR PHOTO
+    const menuData = [
+      // CRÊPES & KUNAFA
+      { name: "C. Chocolat", price: 10, category: "crepes", desc: "Crêpe nappée au chocolat fondant" },
+      { name: "C. Banane", price: 12, category: "crepes", desc: "Crêpe au chocolat et rondelles de banane" },
+      { name: "C. Fraise", price: 15, category: "crepes", desc: "Crêpe garnie de fraises fraîches" },
+      { name: "C. Oreo", price: 13, category: "crepes", desc: "Eclats d'Oreo croustillants & chocolat" },
+      { name: "C. Kit Kat", price: 13, category: "crepes", desc: "Morceaux de Kit Kat croquants" },
+      { name: "C. Mix", price: 20, category: "crepes", desc: "Mélange gourmand (Option 15 / 20 / 25 / 30 DH)" },
+      { name: "C. Milka", price: 15, category: "crepes", desc: "Chocolat au lait Milka fondant" },
+      { name: "C. Kinder Bueno", price: 18, category: "crepes", desc: "Sauce & barres Kinder Bueno" },
+      { name: "C. Lotus", price: 17, category: "crepes", desc: "Crème & biscuits Spéculoos Lotus" },
+      { name: "C. Fruit sec", price: 15, category: "crepes", desc: "Fruits secs croquants généreux" },
+      { name: "C. Crunchy Pistache", price: 30, category: "crepes", desc: "Pistache croustillante signature" },
+      { name: "C. Kunafa pistache", price: 35, category: "crepes", desc: "Spécialité Kunafa & crème pistache" },
+      { name: "C. Kunafa citron", price: 30, category: "crepes", desc: "Kunafa croustillante au citron" },
+      { name: "C. Kunafa mangue", price: 35, category: "crepes", desc: "Kunafa exotique à la mangue" },
+      { name: "C. BOX SMEYEER", price: 45, category: "crepes", desc: "Coffret complet multi-toppings signature" },
+
+      // DESSERTS (9ASHTOTA & TIRAMISU)
+      { name: "9ashtota Fruits", price: 20, category: "desserts", desc: "Gâteau trempé au lait, crème & fruits frais" },
+      { name: "9ashtota Mixte", price: 25, category: "desserts", desc: "9ashtota royale aux toppings mixtes" },
+      { name: "Tiramisu Oreo", price: 15, category: "desserts", desc: "Tiramisu maison saveur Oreo" },
+      { name: "Tiramisu Kinder", price: 15, category: "desserts", desc: "Tiramisu crémeux au Kinder" },
+      { name: "Tiramisu Lotus", price: 15, category: "desserts", desc: "Tiramisu saveur Spéculoos Lotus" },
+
+      // COFFEE
+      { name: "Espresso", price: 6, category: "coffee", desc: "Café expresso intense" },
+      { name: "Double Espresso", price: 12, category: "coffee", desc: "Double dose d'expresso corsé" },
+      { name: "Café au lait", price: 7, category: "coffee", desc: "Café espresso avec du lait chaud" },
+      { name: "Americano", price: 7, category: "coffee", desc: "Café espresso allongé" },
+      { name: "Chocolat chaud", price: 8, category: "coffee", desc: "Chocolat chaud onctueux" },
+      { name: "Cappuccino", price: 10, category: "coffee", desc: "Café espresso recouvert de mousse de lait" },
+
+      // ICED DRINKS & MOJITOS
+      { name: "Iced Latte", price: 15, category: "ice", desc: "Café glacé onctueux au lait" },
+      { name: "Iced Coffee", price: 15, category: "ice", desc: "Café noir frappé glacé" },
+      { name: "Iced Chocolat", price: 20, category: "ice", desc: "Chocolat glacé ultra gourmand" },
+      { name: "Iced Mocha Latte", price: 20, category: "ice", desc: "Café frappé au chocolat & mousse" },
+      { name: "Mojito Citron", price: 8, category: "ice", desc: "Mojito rafraîchissant citron menthe" },
+      { name: "Mojito Fraise", price: 8, category: "ice", desc: "Mojito fruité à la fraise" },
+      { name: "Mojito Bleu", price: 8, category: "ice", desc: "Mojito spécial bleu curacao" },
+
+      // EXTRAS
+      { name: "Extra Chocolat", price: 3, category: "extras", desc: "Supplément sauce chocolat" },
+      { name: "Extra Banane", price: 2, category: "extras", desc: "Portion de banane fraîche" },
+      { name: "Extra Fruit Sec", price: 3, category: "extras", desc: "Mélange croquant fruits secs" },
+      { name: "Extra Crème Pistache", price: 7, category: "extras", desc: "Crème pistache artisanale" },
+      { name: "Extra Crème Citron", price: 5, category: "extras", desc: "Nappage crème citron" },
+      { name: "Extra Crème Kinder", price: 5, category: "extras", desc: "Nappage crème Kinder" },
+      { name: "Extra Crème Blanc", price: 5, category: "extras", desc: "Chocolat blanc fondu" },
+      { name: "Extra Crème Lotus", price: 5, category: "extras", desc: "Nappage Spéculoos Lotus" },
+    ];
+
+    // CART & BUILDER STATE
+    let cart = [];
+    let selectedBase = { name: "Base Crêpe Simple", price: 10 };
+    let selectedExtras = [];
+
+    const basesOptions = [
+      { name: "Base Crêpe Simple", price: 10 },
+      { name: "Base Box Smeyeer", price: 45 }
+    ];
+
+    const extrasOptions = [
+      { name: "Extra Chocolat", price: 3 },
+      { name: "Extra Banane", price: 2 },
+      { name: "Extra Fruit Sec", price: 3 },
+      { name: "Crème Pistache", price: 7 },
+      { name: "Crème Citron", price: 5 },
+      { name: "Crème Kinder", price: 5 },
+      { name: "Crème Blanc", price: 5 },
+      { name: "Crème Lotus", price: 5 },
+    ];
+
+    // RENDER MENU ITEMS
+    function renderMenu(items) {
+      const grid = document.getElementById('menuGrid');
+      grid.innerHTML = items.map(item => `
+        <div class="bg-brand-card border border-brand-gold/20 hover:border-brand-gold/60 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl">
+          <div>
+            <div class="flex justify-between items-start gap-2 mb-2">
+              <h3 class="font-serif font-bold text-lg text-amber-100 group-hover:text-brand-gold transition-colors">${item.name}</h3>
+              <span class="font-black font-serif text-brand-gold bg-brand-dark px-3 py-1 rounded-xl text-sm border border-brand-gold/30 whitespace-nowrap shadow-inner">${item.price} DH</span>
+            </div>
+            <p class="text-amber-200/60 text-xs mb-4 leading-relaxed">${item.desc}</p>
+          </div>
+          <button onclick="addToCart('${item.name}', ${item.price})" class="w-full bg-brand-brown hover:bg-brand-gold hover:text-brand-black text-amber-100 border border-brand-gold/30 font-extrabold py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-plus text-xs"></i>
+            <span>Ajouter au panier</span>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // FILTER CATEGORIES
+    function filterMenu(cat) {
+      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-gradient-to-r', 'from-brand-gold', 'to-amber-500', 'text-brand-black', 'shadow-md');
+        btn.classList.add('bg-brand-card', 'text-amber-200');
+      });
+
+      event.target.classList.remove('bg-brand-card', 'text-amber-200');
+      event.target.classList.add('bg-gradient-to-r', 'from-brand-gold', 'to-amber-500', 'text-brand-black', 'shadow-md');
+
+      if (cat === 'all') renderMenu(menuData);
+      else renderMenu(menuData.filter(i => i.category === cat));
+    }
+
+    // CREPE BUILDER RENDER & LOGIC
+    function renderBuilder() {
+      const basesDiv = document.getElementById('builderBases');
+      basesDiv.innerHTML = basesOptions.map(b => `
+        <button onclick="selectBase('${b.name}', ${b.price})" class="p-3.5 rounded-xl border text-left text-xs font-bold transition-all ${selectedBase.name === b.name ? 'border-brand-gold bg-brand-gold/20 text-brand-gold' : 'border-brand-gold/20 bg-brand-dark text-amber-200'}">
+          <div class="font-serif text-sm">${b.name}</div>
+          <div class="text-brand-gold font-extrabold mt-1">${b.price} DH</div>
+        </button>
+      `).join('');
+
+      const extrasDiv = document.getElementById('builderExtras');
+      extrasDiv.innerHTML = extrasOptions.map(e => {
+        const isSelected = selectedExtras.some(x => x.name === e.name);
+        return `
+          <button onclick="toggleExtra('${e.name}', ${e.price})" class="p-2.5 rounded-xl border text-left text-xs transition-all ${isSelected ? 'border-brand-gold bg-brand-gold/20 text-brand-gold' : 'border-brand-gold/20 bg-brand-dark text-amber-200/80'}">
+            <div class="font-bold">${e.name}</div>
+            <div class="text-brand-gold font-extrabold text-[10px] mt-0.5">+${e.price} DH</div>
+          </button>
+        `;
+      }).join('');
+
+      updateBuilderSummary();
+    }
+
+    function selectBase(name, price) {
+      selectedBase = { name, price };
+      renderBuilder();
+    }
+
+    function toggleExtra(name, price) {
+      const idx = selectedExtras.findIndex(x => x.name === name);
+      if (idx > -1) selectedExtras.splice(idx, 1);
+      else selectedExtras.push({ name, price });
+      renderBuilder();
+    }
+
+    function updateBuilderSummary() {
+      const summary = document.getElementById('builderSummary');
+      let total = selectedBase.price;
+
+      let html = `<div class="font-bold text-amber-100 flex items-center justify-between"><span>• ${selectedBase.name}</span><span>${selectedBase.price} DH</span></div>`;
+      
+      if (selectedExtras.length > 0) {
+        html += `<div class="mt-3 font-semibold text-[11px] text-brand-gold uppercase tracking-wider">Extras sélectionnés:</div>`;
+        selectedExtras.forEach(e => {
+          total += e.price;
+          html += `<div class="text-amber-200/80 pl-2 flex items-center justify-between mt-1"><span>+ ${e.name}</span><span>+${e.price} DH</span></div>`;
+        });
+      }
+
+      summary.innerHTML = html;
+      document.getElementById('builderTotal').innerText = `${total} DH`;
+    }
+
+    function addCustomCrepeToCart() {
+      let total = selectedBase.price + selectedExtras.reduce((a, b) => a + b.price, 0);
+      let desc = `${selectedBase.name}` + (selectedExtras.length > 0 ? ` avec ${selectedExtras.map(e => e.name).join(', ')}` : '');
+      addToCart(`Crêpe Sur-Mesure (${desc})`, total);
+      toggleCartModal();
+    }
+
+    // CART MANAGING LOGIC
+    function addToCart(name, price) {
+      const existing = cart.find(i => i.name === name);
+      if (existing) existing.qty += 1;
+      else cart.push({ name, price, qty: 1 });
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartBadge');
+      const container = document.getElementById('cartItemsContainer');
+      const totalEl = document.getElementById('cartTotal');
+
+      const totalQty = cart.reduce((a, b) => a + b.qty, 0);
+      const totalPrice = cart.reduce((a, b) => a + (b.price * b.qty), 0);
+
+      badge.innerText = totalQty;
+
+      container.innerHTML = cart.length === 0 
+        ? `<div class="text-center text-amber-200/50 py-12 text-sm">Votre panier est vide.</div>`
+        : cart.map((item, idx) => `
+          <div class="flex items-center justify-between bg-brand-brown/40 p-3.5 rounded-xl border border-brand-gold/20 text-xs">
+            <div class="pr-2">
+              <div class="font-bold text-amber-100">${item.name}</div>
+              <div class="text-brand-gold font-bold font-serif text-sm mt-0.5">${item.price * item.qty} DH</div>
+            </div>
+            <div class="flex items-center gap-2 bg-brand-dark px-2 py-1 rounded-lg border border-brand-gold/30">
+              <button onclick="changeQty(${idx}, -1)" class="w-5 h-5 rounded text-amber-200 font-bold hover:text-brand-gold flex items-center justify-center">-</button>
+              <span class="font-black text-amber-100 min-w-[16px] text-center">${item.qty}</span>
+              <button onclick="changeQty(${idx}, 1)" class="w-5 h-5 rounded text-amber-200 font-bold hover:text-brand-gold flex items-center justify-center">+</button>
+            </div>
+          </div>
+        `).join('');
+
+      totalEl.innerText = `${totalPrice} DH`;
+    }
+
+    function changeQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      updateCartUI();
+    }
+
+    function toggleCartModal() {
+      document.getElementById('cartModal').classList.toggle('hidden');
+    }
+
+    // SEND ORDER DIRECTLY TO WHATSAPP
+    function sendWhatsAppOrder() {
+      if (cart.length === 0) {
+        alert("Votre panier est vide !");
+        return;
+      }
+
+      let msg = "✨ *NOUVELLE COMMANDE SMEYEER CRÊPES & COFFEE* ✨\n\n";
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.qty;
+        msg += `• *${item.qty}x ${item.name}* (${itemTotal} DH)\n`;
+        total += itemTotal;
+      });
+
+      msg += `\n💰 *TOTAL : ${total} DH*\n`;
+      msg += `📍 *Type :* Emporter / Livraison\n`;
+      msg += ` Merci de confirmer ma commande !`;
+
+      const whatsappUrl = `https://wa.me/212649197283?text=${encodeURIComponent(msg)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // INITIALIZE ON LOAD
+    window.onload = function() {
+      renderMenu(menuData);
+      renderBuilder();
+    };
+  </script>
+
+</body>
+</html>
